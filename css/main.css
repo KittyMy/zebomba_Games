@@ -26,9 +26,11 @@ body {
 }
 
 .container .map #woman_sm {
-    position: absolute;
-    left: 44.3%;
-    bottom: 19%;
+    transition: transform 1s ease-out;
+    -webkit-transition: transform 1s ease-out;
+    -moz-transition: transform 1s ease-out;
+    -ms-transition: transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
 }
 
 .container .map #woman_sm:hover {
