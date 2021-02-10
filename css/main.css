@@ -10,32 +10,187 @@ body {
     height: 100vh;
 }
 
+.ratingModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #000000ad;
+}
+
+body.openModal .ratingModal {
+    display: block;
+}
+
+.ratingModal .content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 12px;
+    width: 520px;
+    height: 450px;
+    align-items: center;
+    margin: 0 auto;
+    top: 50%;
+    transform: translate(0%, -50%);
+    background: #c08341;
+}
+
+.ratingModal .content .close {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    background: #009cbc;
+}
+.ratingModal .content .close:hover {
+    cursor: pointer;
+}
+
+.ratingModal .content .close .line {
+    display: block;
+    position: absolute;
+    background: #fff;
+    width: 17px;
+    height: 4px;
+    left: 4px;
+    border-radius: 10px;
+}
+
+.ratingModal .content .close .line-1 {
+    transform: translateY(10px) translateX(0) rotate(45deg);
+    -webkit-transform: translateY(10px) translateX(0) rotate(45deg);
+    -moz-transform: translateY(10px) translateX(0) rotate(45deg);
+}
+
+.ratingModal .content .close .line-2 {
+    transform: translateY(-6px) translateX(0) rotate(-45deg);
+    -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
+    -moz-transform: translateY(-6px) translateX(0) rotate(-45deg);
+    top: 62%;
+}
+
+.ratingModal .content .title {
+    display: flex;
+    position: absolute;
+    top: -15px;
+    width: 260px;
+    height: 30px;
+    background: #009cbc;
+    border-radius: 12px;
+}
+
+.ratingModal .content .title span {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ratingModal .content .list {
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+    height: 320px;
+    border-radius: 15px;
+    background: #8c5a31;
+    margin: 100px 30px 35px 30px;
+}
+
+.ratingModal .content .list .listTitle {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 28px;
+    background: #009cbc;
+    border-radius: 12px;
+    margin: 30px 30px 8px;
+}
+
+.ratingModal .content .list .listTitle span {
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ratingModal .content .list .listTitle span:nth-child(1) {
+    margin-left: 15px;
+    width: 100%;
+    max-width: 90px;
+}
+
+.ratingModal .content .list .listTitle span:nth-child(2) {
+    width: 100%;
+    max-width: 205px;
+}
+
+.ratingModal .content #listing {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px 0;
+    max-height: 200px;
+    overflow-y: scroll;
+    color: #fff;
+    font-weight: bold;
+}
+
+.ratingModal .content #listing .once {
+    display: flex;
+    align-items: center;
+    min-height: 28px;
+    background: #009cbc;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.ratingModal .content #listing .once.active {
+    background: #4b1d82;
+}
+
+.ratingModal .content #listing #place {
+    margin-left: 25px;
+    max-width: 80px;
+    width: 100%;
+
+}
+
+.ratingModal .content #listing #name {
+    max-width: 205px;
+    width: 100%;
+}
+
+.ratingModal .content .list #listing ul li {
+    list-style-type: none;
+}
+
+
 .container {
+    position: relative;
     max-width: 980px;
     width: 100%;
     background: url(../img/floor.png) 50% 50% no-repeat;
     margin: 0 auto;
 }
 
+
 .container .map {
     position: relative;
     height: 630px;
     width: 100%;
-    /* min-height: 4000px;
-    overflow: scroll; */
 }
 
-.container .map #woman_sm {
-    transition: transform 1s ease-out;
-    -webkit-transition: transform 1s ease-out;
-    -moz-transition: transform 1s ease-out;
-    -ms-transition: transform 1s ease-out;
-    -o-transition: transform 1s ease-out;
-}
+/* .container .map #woman_sm {
+    transition: transform 1s linear;
+} */
 
 .container .map #woman_sm:hover {
-    left: 44.3%;
-    bottom: 19%;
     animation-duration: 1s;
     animation-name: woman;
     animation-iteration-count: infinite;
@@ -44,25 +199,23 @@ body {
     cursor: pointer;
 }
 
-.container .map button {
+.footer {
+    display: flex;
+    flex-direction: row;
     position: absolute;
+    justify-content: space-between;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}
+
+.footer button {
     width: 150px;
     height: 50px;
-    right: 0;
     bottom: 0;
 }
 
-.car {
-    background: url(../img/woman_sm.png) 50% 50% no-repeat
-}
-
-@keyframes woman {
-    0% {
-        left: 44.3%;
-        bottom: 19%;
-    }
-
-    100% {
-        bottom: 21%;
-    }
-}
+/* @keyframes woman {
+    from { transform: translateY(-13); }
+    to { transform: translateY(320px) translateX(16px); }
+} */
