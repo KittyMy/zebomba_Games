@@ -26,6 +26,7 @@ rating.onclick = function() {
         main.innerHTML += `
                 <div class="once ${isActive}">
                     <span id="place">${item.id}</span>
+                    <img src="${item.img}">
                     <span id="name">${item.name} ${item.lastName}</span>
                     <span id="exp">${item.points}</span>
                 </div>
@@ -46,34 +47,28 @@ function positionWom() {
     let dist = arr.shift();
     let diff = dist - prev,
         i = 0;
-    let intervalId = setInterval(()=>{
+    let intervalId = setInterval(() => {
         if(i > diff){
             prev = dist;
             inUni.disabled = false;
             return clearInterval(intervalId);
-        };
+        }
         pos = path.getPointAtLength(prev + i);
-            woman.setAttribute("transform", `translate(${pos.x},${pos.y})`);
-            inUni.disabled = true;
+        woman.setAttribute("transform", `translate(${pos.x},${pos.y})`);
+        inUni.disabled = true;
         i+= 5;
     }, 40);
 }
 
-woman.addEventListener('mouseover', function() {
-
+//Анимация девушки "Вверх-вниз"
+woman.addEventListener('mouseover', () => {
     woman.animate([
-        {transform: 'translateY(-13)'},
-        {transform: 'translateY(320px) translateX(16px)'}
-    ]), {
-        duration: 1000,
-        iterations: Infinity
-    };
-    // let style = window.getComputedStyle(this);
-    // let matrix = style.transform;
-    // woman.setAttribute("transform", `translate(${pos.x},${pos.y})`);
-    // console.log(pos);
-
-    // this.setAttribute("transform", `translate(${pos.x},${pos.y + 5})`);
+        { transform: `translate(${pos.x}px,${pos.y}px)` },
+        { transform: `translate(${pos.x}px,${pos.y - 15}px)`},
+        { transform: `translate(${pos.x}px,${pos.y}px)`}
+    ], {
+        duration: 1000
+    });
 });
 
 inUni.addEventListener('click', positionWom);

@@ -93,7 +93,7 @@ body.openModal #openBlock .ratingModal {
     transform: translateY(-6px) translateX(0) rotate(-45deg);
     -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
     -moz-transform: translateY(-6px) translateX(0) rotate(-45deg);
-    top: 62%;
+    top: 64%;
 }
 
 .ratingModal .content .title {
@@ -154,11 +154,24 @@ body.openModal #openBlock .ratingModal {
 .ratingModal .content #listing {
     display: flex;
     flex-direction: column;
-    margin: 0 30px 0;
+    margin: 0 15px 0 30px;
     max-height: 200px;
     overflow-y: scroll;
     color: #fff;
     font-weight: bold;
+}
+
+.ratingModal .content #listing::-webkit-scrollbar {
+    width: 1em;
+}
+   
+.ratingModal .content #listing::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+.ratingModal .content #listing::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }
 
 .ratingModal .content #listing .once {
@@ -170,13 +183,19 @@ body.openModal #openBlock .ratingModal {
     margin-bottom: 8px;
 }
 
+.ratingModal .content #listing .once img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
 .ratingModal .content #listing .once.active {
     background: #4b1d82;
 }
 
 .ratingModal .content #listing #place {
     margin-left: 25px;
-    max-width: 80px;
+    max-width: 50px;
     width: 100%;
 
 }
@@ -190,7 +209,6 @@ body.openModal #openBlock .ratingModal {
     list-style-type: none;
 }
 
-
 .container {
     position: relative;
     max-width: 980px;
@@ -199,23 +217,13 @@ body.openModal #openBlock .ratingModal {
     margin: 0 auto;
 }
 
-
 .container .map {
     position: relative;
     height: 630px;
     width: 100%;
 }
 
-/* .container .map #woman_sm {
-    transition: transform 1s linear;
-} */
-
 .container .map #woman_sm:hover {
-    animation-duration: 1s;
-    animation-name: woman;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
     cursor: pointer;
 }
 
@@ -256,8 +264,3 @@ body.openModal #openBlock .ratingModal {
   width: 66px;
   height: 60px;
 }
-
-/* @keyframes woman {
-    from { transform: translateY(-13); }
-    to { transform: translateY(320px) translateX(16px); }
-} */
